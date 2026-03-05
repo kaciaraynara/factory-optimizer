@@ -1,49 +1,74 @@
-Factory Optimization System
-Ferramenta de Gestão e Planejamento de Produção
-Este projeto consiste em uma solução Full-Stack desenvolvida para otimizar o faturamento em ambientes de manufatura e pesquisa. Através de um motor de cálculo inteligente, o sistema analisa o estoque de matérias-primas e sugere o melhor plano de produção possível para maximizar o lucro bruto.
 
-Tecnologias Utilizadas
-Back-end
-Java 17 e Spring Boot 3: Estrutura robusta para API RESTful e injeção de dependências.
 
-Spring Data JPA: Gerenciamento eficiente da camada de persistência.
+# Factory Optimization System
 
-H2 Database: Banco de dados em memória para execução rápida sem necessidade de configurações externas.
+### Solução de Inteligência para Gestão e Otimização de Produção
 
-JUnit 5 e Mockito: Testes unitários para validar a integridade da lógica de otimização.
+---
 
-Front-end
-Vue 3 (Composition API): Interface moderna, reativa e modular.
+## Sobre o Projeto
 
-Vite: Tooling de nova geração para um ciclo de desenvolvimento ágil.
+O **Factory Optimization System** é uma plataforma full-stack projetada para solucionar desafios de gestão de inventário e planejamento de produção em escala industrial. O sistema utiliza um motor de cálculo avançado que analisa a disponibilidade de matérias-primas e as receitas de produtos para determinar o cenário produtivo que entrega a maior rentabilidade possível.
 
-Axios: Integração fluida para consumo de serviços assíncronos.
+---
 
-Lógica de Otimização (Greedy Algorithm)
-O diferencial técnico desta aplicação reside na implementação de um Algoritmo Ganancioso (Greedy Algorithm) dentro do FactoryService.
+## Diferenciais Técnicos
 
-Funcionamento do Motor:
+* **Motor de Decisão Inteligente**: Implementação de um Algoritmo Ganancioso (Greedy Algorithm) para otimização de recursos.
+* **Arquitetura Desacoplada**: Separação rigorosa entre a lógica de negócio no back-end e a interface reativa no front-end.
+* **Persistência de Dados**: Uso de abstrações JPA para gerenciamento eficiente de estoque e histórico de produção.
+* **Foco em Performance**: Front-end desenvolvido com Vue 3 e Vite, garantindo tempos de resposta reduzidos e alta fluidez na navegação.
 
-Simulação de Inventário: O sistema mapeia o estado atual do estoque de forma isolada para não comprometer a persistência durante os cálculos.
+---
 
-Priorização por Rentabilidade: Todos os produtos são ordenados de forma decrescente pelo preço de venda, garantindo que recursos escassos sejam aplicados primeiro nos itens de maior valor.
+## Stack Tecnológica
 
-Cálculo de Viabilidade: O algoritmo percorre a lista e define a quantidade máxima de produção permitida pelos insumos disponíveis, deduzindo-os progressivamente do estoque simulado.
+| Camada | Tecnologia | Finalidade |
+| --- | --- | --- |
+| **Back-end** | Java 17 / Spring Boot 3 | API REST e Motor de Cálculo |
+| **Front-end** | Vue 3 (Composition API) | Interface Reativa e SPA |
+| **Build Tool** | Vite / Maven | Gerenciamento de Dependências e Compilação |
+| **Database** | H2 Database | Persistência em Memória para Prototipagem Ágil |
+| **Testes** | JUnit 5 / Mockito | Validação da Lógica de Negócio e Otimização |
 
-Instruções para Execução
-1. Back-end
-Certifique-se de possuir o Maven instalado.
+---
 
-Bash
+## O Motor de Otimização
+
+A inteligência de maximização de lucro reside no `FactoryService`, operando sob três pilares fundamentais:
+
+1. **Priorização de Ativos**: Organiza os produtos cadastrados com base no preço de venda, assegurando que os recursos sejam alocados primeiro onde há maior retorno financeiro.
+2. **Mapeamento de Inventário**: Realiza uma simulação do estoque atual de forma isolada, permitindo cálculos complexos sem comprometer a integridade dos dados persistidos.
+3. **Alocação de Insumos**: Reserva matérias-primas progressivamente para os itens mais rentáveis até que os recursos disponíveis sejam esgotados.
+
+---
+
+## Instruções para Execução
+
+### Pré-requisitos
+
+* Java JDK 17 ou superior
+* Node.js (v18+)
+* Maven
+
+### Configuração do Back-end
+
+```bash
 cd backend
-mvn clean spring-boot:run
-A API estará disponível no endereço: http://localhost:8080
+mvn clean compile
+mvn spring-boot:run
 
-2. Front-end
-Certifique-se de possuir o Node.js instalado.
+```
 
-Bash
+O servidor será iniciado em: `http://localhost:8080`
+
+### Configuração do Front-end
+
+```bash
 cd frontend
 npm install
 npm run dev
-Acesse a interface pelo endereço: http://localhost:5173
+
+```
+
+O painel de controle estará disponível em: `http://localhost:5173`
